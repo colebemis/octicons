@@ -1,39 +1,25 @@
 {
-  "version": "5.0.1",
-  "name": "octicons",
-  "description": "A scalable set of icons handcrafted with <3 by GitHub.",
-  "homepage": "https://octicons.github.com",
-  "author": "GitHub Inc.",
-  "license": "(OFL-1.1 OR MIT)",
-  "style": "build/octicons.css",
-  "main": "index.js",
-  "files": [
-    "index.js",
-    "build"
-  ],
-  "repository": "https://github.com/primer/octicons.git",
-  "bugs": {
-    "url": "https://github.com/primer/octicons/issues"
-  },
+  "private": true,
+  "version": "9.6.0",
   "scripts": {
-    "build": "grunt",
-    "prepublish": "npm run build",
-    "test": "npm run build && ava --verbose \"test/**/*.js\""
+    "version": "script/version",
+    "test": "ava -v tests/*.js",
+    "lint": "eslint tests",
+    "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
+    "start": "cd docs && npm run develop"
   },
-  "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "ava": "^0.16.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-cssnano": "^2.1.0",
-    "grunt-svgmin": "^4.0.0",
-    "grunt-svgstore": "^1.0.0"
-  },
-  "keywords": [
-    "GitHub",
-    "icons",
-    "svg",
-    "octicons"
-  ]
+  "dependencies": {
+    "ava": "^2.1.0",
+    "braces": "^2.3.1",
+    "cheerio": "^1.0.0-rc.3",
+    "eslint": "^5.8.0",
+    "eslint-plugin-github": "^1.6.0",
+    "execa": "^4.0.0",
+    "fs-extra": "^7.0.1",
+    "globby": "^11.0.0",
+    "js-yaml": "^3.13.1",
+    "lodash.keyby": "^4.6.0",
+    "trim-newlines": "^3.0.0",
+    "yargs": "^15.1.0"
+  }
 }
